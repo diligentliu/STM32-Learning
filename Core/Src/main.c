@@ -90,32 +90,14 @@ int main(void) {
 	LED0(1);
 	beep_init();
 	key_init();
-	uint8_t key;
+	extix_init();
 	/* USER CODE END 2 */
 
 	/* USER CODE BEGIN 3 */
 	/* Infinite loop */
 	/* USER CODE BEGIN WHILE */
 	while (1) {
-		key = key_scan(0);
-		if (key) {
-			switch (key) {
-				case KEY0_PRES:
-					LED0_TOGGLE();
-					LED1_TOGGLE();
-					break;
-				case KEY1_PRES:
-					LED1_TOGGLE();
-					break;
-				case KEY_UP_PRES:
-					BEEP_TOGGLE();
-					break;
-				default:
-					break;
-			}
-		} else {
-			HAL_Delay(10);
-		}
+		HAL_Delay(1000);
 		/* USER CODE END WHILE */
 	}
 	/* USER CODE END 3 */
