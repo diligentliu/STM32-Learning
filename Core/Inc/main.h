@@ -31,6 +31,13 @@ extern "C" {
 #include "stm32f1xx_hal.h"
 #include "stm32f1xx_it.h"
 
+#include "sys.h"
+#include "delay.h"
+#include "usart.h"
+#include "gpio.h"
+#include "key.h"
+#include "key_exit.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
