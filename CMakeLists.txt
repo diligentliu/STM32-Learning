@@ -55,6 +55,7 @@ include_directories(
         Drivers/STM32F1xx_HAL_Driver/Inc/Legacy
         Drivers/CMSIS/Device/ST/STM32F1xx/Include
         Drivers/CMSIS/Include
+        Drivers/SYSTEM
 )
 
 add_definitions(-DUSE_HAL_DRIVER -DSTM32F103xE)
