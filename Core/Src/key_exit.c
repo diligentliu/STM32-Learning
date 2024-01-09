@@ -20,13 +20,14 @@ void extix_init() {
 	gpioInitTypeDef.Pull = GPIO_PULLDOWN;
 	HAL_GPIO_Init(KEY_UP_GPIO_PORT, &gpioInitTypeDef);
 
-	HAL_NVIC_SetPriority(KEY0_INT_IRQn, 0, 2);
+	// HAL_NVIC_SetPriority(SysTick_IRQn, 0, 0);
+	HAL_NVIC_SetPriority(KEY0_INT_IRQn, 1, 2);
 	HAL_NVIC_EnableIRQ(KEY0_INT_IRQn);
 
-	HAL_NVIC_SetPriority(KEY1_INT_IRQn, 1, 2);
+	HAL_NVIC_SetPriority(KEY1_INT_IRQn, 2, 2);
 	HAL_NVIC_EnableIRQ(KEY1_INT_IRQn);
 
-	HAL_NVIC_SetPriority(KEY_UP_INT_IRQn, 2, 2);
+	HAL_NVIC_SetPriority(KEY_UP_INT_IRQn, 3, 2);
 	HAL_NVIC_EnableIRQ(KEY_UP_INT_IRQn);
 }
 
@@ -59,7 +60,7 @@ void KEY_UP_INT_IRQHandler() {
  * 在 HAL 库中所有的外部中断服务函数都会调用此函数
  */
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-	HAL_Delay(20); /* 消抖 */
+	delay_ms(20); /* 消抖 */
 	switch (GPIO_Pin) {
 		case KEY0_GPIO_PIN:
 			if (KEY0 == 0) {
