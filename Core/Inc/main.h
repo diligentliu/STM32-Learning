@@ -36,7 +36,7 @@ extern "C" {
 #include "usart.h"
 #include "gpio.h"
 #include "key.h"
-#include "key_exit.h"
+#include "key_exti.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */

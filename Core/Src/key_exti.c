@@ -1,4 +1,4 @@
-#include "key_exit.h"
+#include "key_exti.h"
 
 void extix_init() {
 	GPIO_InitTypeDef gpioInitTypeDef;

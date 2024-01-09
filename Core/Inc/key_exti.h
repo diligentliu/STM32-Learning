@@ -1,11 +1,11 @@
-#ifndef STM32_LEARNING_KEY_EXIT_H
-#define STM32_LEARNING_KEY_EXIT_H
+#ifndef STM32_LEARNING_KEY_EXTI_H
+#define STM32_LEARNING_KEY_EXTI_H
 
 #include "gpio.h"
 #include "key.h"
 #include "main.h"
 
-/* EXIT 外部中断使能 */
+/* EXTI 外部中断使能 */
 #define KEY0_INT_IRQn           EXTI4_IRQn
 #define KEY0_INT_IRQHandler     EXTI4_IRQHandler
 #define KEY1_INT_IRQn           EXTI3_IRQn
@@ -15,4 +15,4 @@
 
 void extix_init();
 
-#endif //STM32_LEARNING_KEY_EXIT_H
+#endif //STM32_LEARNING_KEY_EXTI_H
