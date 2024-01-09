@@ -30,19 +30,21 @@ void SystemClock_Config(void);
 int main(void) {
 	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
 	HAL_Init();
-
-	/* Configure the system clock */
-	SystemClock_Config();
+	sys_stm32_clock_init(RCC_PLL_MUL9);          /* 设置时钟, 72Mhz */
+	delay_init(72);                             /* 延时初始化 */
+	usart_init(115200);                        /* 串口初始化为 115200 */
 
 	/* Initialize all configured peripherals */
 	led_init();
-	LED0(1);
-	beep_init();
-	key_init();
-	extix_init();
+	// LED0(1);
+	// beep_init();
+	// key_init();
+	// extix_init();
+	btim_timx_int_init(5000 - 1, 7200 - 1);
 
 	while (1) {
-		delay_ms(1000);
+		LED0_TOGGLE();
+		delay_ms(200);
 	}
 }
 

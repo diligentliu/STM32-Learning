@@ -37,6 +37,7 @@ extern "C" {
 #include "gpio.h"
 #include "key.h"
 #include "key_exti.h"
+#include "base_time.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
