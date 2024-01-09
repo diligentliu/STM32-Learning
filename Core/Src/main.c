@@ -40,11 +40,12 @@ int main(void) {
 	// beep_init();
 	// key_init();
 	// extix_init();
-	btim_timx_int_init(5000 - 1, 7200 - 1);
+	// 20000 * 7200 / 72M = 3s
+	btim_timx_int_init(20000 - 1, 7200 - 1);
 
 	while (1) {
 		LED0_TOGGLE();
-		delay_ms(200);
+		delay_ms(1000);
 	}
 }
 
