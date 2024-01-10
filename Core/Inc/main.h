@@ -38,6 +38,7 @@ extern "C" {
 #include "key.h"
 #include "key_exti.h"
 #include "base_time.h"
+#include "global_time.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */

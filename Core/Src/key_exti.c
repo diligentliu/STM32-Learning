@@ -55,7 +55,7 @@ void KEY_UP_INT_IRQHandler() {
 	__HAL_GPIO_EXTI_CLEAR_IT(KEY_UP_GPIO_PIN);
 }
 
-/*
+/**
  * 中断服务程序中需要做的事情
  * 在 HAL 库中所有的外部中断服务函数都会调用此函数
  */

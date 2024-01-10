@@ -40,12 +40,28 @@ int main(void) {
 	// beep_init();
 	// key_init();
 	// extix_init();
-	// 20000 * 7200 / 72M = 3s
-	btim_timx_int_init(20000 - 1, 7200 - 1);
-
+	/*
+	 * 20000 * 7200 / 72M = 2s
+	 * 时钟分屏 20000, 重新装载值 7200
+	 * LED0 每 0.5s 切换, LED1 跟随时钟中断每 0.5s 切换
+	 */
+	// gtim_timx_int_init(20000 - 1, 7200 - 1);
+	/*
+	 * 呼吸灯
+	 */
+	uint8_t dir = 1;
+	uint16_t ledrpwmval = 0;
+	gtim_timx_pwm_chy_init(100 - 1, 720 - 1);
 	while (1) {
-		LED0_TOGGLE();
-		delay_ms(1000);
+		for (int i = 0; i <= 200; ++i) {
+			pwm_set_compare(i);
+			delay_ms(10);
+		}
+
+		for (int i = 0; i <= 200; ++i) {
+			pwm_set_compare(200 - i);
+			delay_ms(10);
+		}
 	}
 }
 
@@ -117,7 +133,6 @@ void HAL_Delay(uint32_t Delay) {
 	delay_ms(Delay);
 }
  */
-#define USE_FULL_ASSERT
 #ifdef  USE_FULL_ASSERT
 
 /**

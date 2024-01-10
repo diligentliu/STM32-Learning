@@ -1,6 +1,6 @@
 #include "base_time.h"
 
-TIM_HandleTypeDef g_timx_handle;  /* 定时器句柄 */
+TIM_HandleTypeDef e_timx_handle;  /* 定时器句柄 */
 
 /**
  * @brief 基本定时器 TIMX 定时中断初始化函数
@@ -15,13 +15,13 @@ TIM_HandleTypeDef g_timx_handle;  /* 定时器句柄 */
  * @retval 无
  */
 void btim_timx_int_init(uint16_t arr, uint16_t psc) {
-	g_timx_handle.Instance = BTIM_TIMX_INT;
-	g_timx_handle.Init.Prescaler = psc;
-	g_timx_handle.Init.CounterMode = TIM_COUNTERMODE_UP;
-	g_timx_handle.Init.Period = arr;
+	e_timx_handle.Instance = BTIM_TIMX_INT;
+	e_timx_handle.Init.Prescaler = psc;
+	e_timx_handle.Init.CounterMode = TIM_COUNTERMODE_UP;
+	e_timx_handle.Init.Period = arr;
+	HAL_TIM_Base_Init(&e_timx_handle);
 
-	HAL_TIM_Base_Init(&g_timx_handle);
-	HAL_TIM_Base_Start_IT(&g_timx_handle);
+	HAL_TIM_Base_Start_IT(&e_timx_handle);
 }
 
 /**
@@ -44,7 +44,7 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef *htim) {
  * @retval      无
  */
 void BTIM_TIMX_INT_IRQHandler(void) {
-	HAL_TIM_IRQHandler(&g_timx_handle); /* 定时器中断公共处理函数 */
+	HAL_TIM_IRQHandler(&e_timx_handle); /* 定时器中断公共处理函数 */
 }
 
 /**
