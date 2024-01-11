@@ -49,19 +49,10 @@ int main(void) {
 	/*
 	 * 呼吸灯
 	 */
-	uint8_t dir = 1;
-	uint16_t ledrpwmval = 0;
+
 	gtim_timx_pwm_chy_init(300 - 1, 720 - 1);
 	while (1) {
-		for (int i = 0; i <= 300; ++i) {
-			pwm_set_compare(i);
-			delay_ms(10);
-		}
-
-		for (int i = 0; i <= 300; ++i) {
-			pwm_set_compare(300 - i);
-			delay_ms(10);
-		}
+		breathing_light();
 	}
 }
 

@@ -37,4 +37,6 @@
 void gtim_timx_int_init(uint16_t arr, uint16_t psc);
 void gtim_timx_pwm_chy_init(uint16_t arr,uint16_t psc);
 void pwm_set_compare(uint16_t compare);
+void breathing_light();
+
 #endif //STM32_LEARNING_GLOBAL_TIME_H

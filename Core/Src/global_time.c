@@ -79,3 +79,15 @@ void gtim_timx_pwm_chy_init(uint16_t arr, uint16_t psc) {
 void pwm_set_compare(uint16_t compare) {
 	__HAL_TIM_SET_COMPARE(&g_timx_pwm_chy_handle, GTIM_TIMX_PWM_CHY, compare);
 }
+
+void breathing_light() {
+	for (int i = 0; i <= 300; ++i) {
+		pwm_set_compare(i);
+		delay_ms(10);
+	}
+
+	for (int i = 0; i <= 300; ++i) {
+		pwm_set_compare(300 - i);
+		delay_ms(10);
+	}
+}
