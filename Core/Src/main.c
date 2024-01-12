@@ -31,7 +31,7 @@ int main(void) {
 	/* Reset of all peripherals, Initializes the Flash interface and the Systick. */
 	HAL_Init();
 	sys_stm32_clock_init(RCC_PLL_MUL9);          /* 设置时钟, 72Mhz */
-	delay_init(72);                             /* 延时初始化 */
+	delay_init(72);                            /* 延时初始化 */
 	usart_init(115200);                        /* 串口初始化为 115200 */
 
 	/* Initialize all configured peripherals */

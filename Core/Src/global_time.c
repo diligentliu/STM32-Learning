@@ -76,6 +76,13 @@ void gtim_timx_pwm_chy_init(uint16_t arr, uint16_t psc) {
 // 	}
 // }
 
+/**
+ * gtim_timx_pwm_chy_init(300 - 1, 720 - 1);
+ * while (1) {
+ *  	breathing_light();
+ * }
+ * @param compare
+ */
 void pwm_set_compare(uint16_t compare) {
 	__HAL_TIM_SET_COMPARE(&g_timx_pwm_chy_handle, GTIM_TIMX_PWM_CHY, compare);
 }
